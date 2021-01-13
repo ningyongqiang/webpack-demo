@@ -10,7 +10,7 @@
 
 * 模块Modules
 
-  webpack天生支持`ES6` `CommonJS` `AMD` 等
+  webpack天生支持`ES6` `CommonJS` `AMD` 等，
 
 * chunk
 
@@ -144,7 +144,7 @@ module.exports = {
 
 1. 开箱即用
 
-   webpack不用任何配置就能直接使用，默认入口为`src/index.js`，然后会在`dist/main.js`输出结果，并且在生产环境下开启压缩和优化。
+   从webpack `v4` 开始，不用任何配置就能直接使用，默认入口为`src/index.js`，然后会在`dist/main.js`输出结果，并且在生产环境下开启压缩和优化。
 
 2. 自定义扩展
 
@@ -167,11 +167,11 @@ module.exports = {
    3.1 配置方式
 
    	3.1.1 使用common.js抛出一个对象（导出单个配置）
-	
+   	
    	3.1.2 导出函数
-	
+   	
    	3.1.3 导出Promise
-	
+   	
    	3.1.4 导出多种配置（Array）
 
    3.2 使用node提供的`__dirname`全局变量来表示当前模块的目录名称。
@@ -189,4 +189,25 @@ module.exports = {
    $ npx webpack-cli init
    ```
 
-   执行上面命令会在创建配置文件之前询问问题。
+   执行上面命令会在创建配置文件之前询问问题：
+
+   * 是否生成多个bundle？
+   * 用哪个当入口文件？
+   * 用哪个文件夹储存bundle？
+   * 使用哪种js的解决方案？
+   * 使用哪种css的解决方案？
+   * 是否使用MiniCssExtractPlugin?
+   * ...等
+
+### 使用
+
+* 管理资源
+
+  webpack除了引入`javascript` 模块以外，可以使用loader引入其他的非`javascript`模块。
+
+  比如css、image、font等
+
+* 管理输出
+
+  我们现在是在`index.html`手动引入bundle，但是万一使用多个bundle，或者在文件名中使用hash，手动管理`index.html`就会很困难。
+

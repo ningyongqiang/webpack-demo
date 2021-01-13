@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), // clean-webpack-plugin需要output.path
     filename: 'bundle.js'
   },
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

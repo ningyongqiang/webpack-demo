@@ -21,6 +21,26 @@
 * bundle
 
   最后打包之后的文件，有可能和chunk长的一样
+  
+* Source map
+
+  Source map是浏览器提供的功能，我们能主动添加，也可以在打包之后的文件中添加下面注释，向浏览器指示源映射
+
+  ```javascript
+  //# sourceMappingURL=/path/to/script.js.map
+  ```
+
+  如果将三个源文件（a.js、b.js、c.js）打包到一个 `bundle.js`中，而其中一个源文件包含一个错误，那么堆栈跟踪就会直接指向到`bundle.js`，你就不能准确的追踪到错误信息在哪个源文件。
+
+  开启映射
+
+  ```javascript
+  module.exports = {
+    'devtool': 'inline-source-map'
+  }
+  ```
+
+  
 
 例子：
 

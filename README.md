@@ -211,3 +211,10 @@ module.exports = {
 
   我们现在是在`index.html`手动引入bundle，但是万一使用多个bundle，或者在文件名中使用hash，手动管理`index.html`就会很困难。
 
+  [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin)
+
+  [CleanWebpackPlugin](https://github.com/johnagan/clean-webpack-plugin)
+
+* 开发环境
+
+  

@@ -4,23 +4,32 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  entry: {
+    main: './src/main.js',
+    index: './src/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'), // clean-webpack-plugin需要output.path
-    filename: 'bundle.js'
+    publicPath: '/',
+    filename: '[name].[contenthash].bundle.js'
   },
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: '管理输出'
+      template: 'src/index.html',
+      filename: 'index.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/main.html',
+      filename: 'main.html',
+      chunks: ['main']
     })
   ],
   module: {
     rules: [
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+      
+    ]
   }
 }

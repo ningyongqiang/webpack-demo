@@ -233,8 +233,46 @@ module.exports = {
 
   [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin)
 
+  也可以使用HtmlWebpackPlugin生成多个html，但要考虑不同的html引用不同的chunk
+
   [CleanWebpackPlugin](https://github.com/johnagan/clean-webpack-plugin)
 
 * 开发环境
 
+  使用[webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/)
   
+  ***这里着重介绍下*** `output.publicPath` `devServer.publicPath` `devServer.contentBase`
+  
+  * `output.publicPath`这个值是决定index.html中引用bundle的相对路径，相对于index.html。
+  
+  Index.html
+  
+  ```javascript
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+  </head>
+  <body>
+    
+  <script src="/index.bde1a45ddb350ce470a9.bundle.js"></script></body>
+  </html>
+  ```
+  
+  webpack.config.js
+  
+  ```javascript
+  output: {
+    publicPath: '/'
+  },
+  ```
+  
+  * `devServer.publicPath` 
+  
+  webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 outPut.publicPath输出的bundle 文件保留（映射）在内存中。devServer.publicPath决定这个虚拟bundle的绝对路径。
+  
+  * `devServer.contentBase`
+  
+  告诉webpack-dev-server从哪里提供内容，默认当前服务器启动的根目录。一般不需要修改。

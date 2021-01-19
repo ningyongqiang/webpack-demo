@@ -14,6 +14,9 @@ module.exports = {
     filename: '[name].[contenthash].bundle.js'
   },
   devtool: 'inline-source-map',
+  devServer: {
+    hot: true
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -29,7 +32,16 @@ module.exports = {
   ],
   module: {
     rules: [
-      
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ]
   }
 }

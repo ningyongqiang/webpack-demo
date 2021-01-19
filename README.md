@@ -6,7 +6,7 @@
 * 然后webpack将所有<font color='red'>模块</font>打包为少量的<font color="red">bundle</font>。
 * 供浏览器加载。
 
-### Modules chunk bundle
+### 术语解释
 
 * 模块Modules
 
@@ -40,7 +40,15 @@
   }
   ```
 
-  
+* Tree shaking
+
+  在ES2015静态import下，移除js上下文中未引用代码(dead-code)，就叫Tree shaking。
+
+  不同的打包工具有不同的做法。
+
+* side effect（副作用）
+
+  > "side effect(副作用)" 的定义是，在导入时会执行特殊行为的代码，而不是仅仅暴露一个 export 或多个 export。举例说明，例如 polyfill，它影响全局作用域，并且通常不提供 export。
 
 例子：
 
@@ -149,6 +157,8 @@ module.exports = {
   ```
 
   在上面的示例中，`html-webpack-plugin` 为应用程序生成一个 HTML 文件，并自动注入所有生成的 bundle
+
+  `copy-webpack-plugin`将单个文件或者整个目录（已存在）复制到构建目录。`vue-cli@2.0` 中的static文件夹、 `vue-cli@3.0`中的public文件夹。
 
 * Mode（模式）
 

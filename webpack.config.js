@@ -4,10 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: {
-    main: './src/main.js',
-    index: './src/index.js'
-  },
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'), // clean-webpack-plugin需要output.path
     publicPath: '/',
@@ -20,14 +17,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      filename: 'index.html',
-      chunks: ['index']
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/main.html',
-      filename: 'main.html',
-      chunks: ['main']
+      template: 'src/index.html'
     })
   ],
   module: {

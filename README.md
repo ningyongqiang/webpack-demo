@@ -216,11 +216,15 @@ module.exports = {
    3.3 快速生成webpack配置
 
    ```shell
-   $ npx webpack-cli init
+   mkdir webpack-demo
+   cd webpack-demo
+npm init -y
+   npm install webpack webpack-cli --save-dev
+npx webpack-cli init
    ```
-
+   
    执行上面命令会在创建配置文件之前询问问题：
-
+   
    * 是否生成多个bundle？
    * 用哪个当入口文件？
    * 用哪个文件夹储存bundle？

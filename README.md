@@ -218,9 +218,9 @@ module.exports = {
    ```shell
    mkdir webpack-demo
    cd webpack-demo
-npm init -y
+   npm init -y
    npm install webpack webpack-cli --save-dev
-npx webpack-cli init
+   npx webpack-cli init
    ```
    
    执行上面命令会在创建配置文件之前询问问题：

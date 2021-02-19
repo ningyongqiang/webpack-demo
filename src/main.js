@@ -1,5 +1,7 @@
 import ShoppingCart from './shoppingCart'
 import List from './list'
+import img from '../public/WechatIMG44.jpeg'
+console.log(img)
 
 class App {
   constructor(id) {

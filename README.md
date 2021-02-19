@@ -241,6 +241,47 @@ module.exports = {
 
   比如css、image、font等
 
+  特别注意的是，在`webpack5`中增加了*资源模块*的概念，它允许你使用资源文件，而无需配置额外的loader。
+
+  例如：`file-loader`
+
+  ```js
+  module.exports = {
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          loader: 'file-loader'
+        },
+      ],
+    },
+  };
+  ```
+
+  但是`webpack5`中需要以下配置：
+
+  ```js
+  module.exports = {
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          type: 'asset/resource'
+        },
+      ],
+    },
+  };
+  ```
+
+  结果：
+
+  ```js
+  import img from '../public/WechatIMG44.jpeg'
+  console.log(img) // echo /9df17198adb4a1736396.jpeg
+  ```
+
+  
+
 * 管理输出
 
   我们现在是在`index.html`手动引入bundle，但是万一使用多个bundle，或者在文件名中使用hash，手动管理`index.html`就会很困难。
